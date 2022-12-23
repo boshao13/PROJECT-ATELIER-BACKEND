@@ -1,0 +1,38 @@
+{
+  "name": "project-atelier-reviews-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "createdb": "psql sdc_reviews < /Users/boshao/HACK/PROJECT-ATELIER-REVIEWS-BACKEND/server/schema.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Prada/PROJECT-ATELIER-REVIEWS-BACKEND.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Prada/PROJECT-ATELIER-REVIEWS-BACKEND/issues"
+  },
+  "homepage": "https://github.com/Team-Prada/PROJECT-ATELIER-REVIEWS-BACKEND#readme",
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-plugin-react": "^7.31.11",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "faker": "^6.6.6",
+    "fast-csv": "^4.3.6",
+    "minimist": "^1.2.7",
+    "pg": "^8.8.0",
+    "pg-copy-streams": "^6.0.4",
+    "postgres": "^3.3.2",
+    "validator": "^13.7.0"
+  }
+}
