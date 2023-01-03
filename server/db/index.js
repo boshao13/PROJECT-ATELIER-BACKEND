@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 // Create a pool instance and pass in our config, which we set in our env vars
 const pool = new Pool({
 
-    database: 'sdc_reviews'
+    database: 'reviews'
 
 });
 

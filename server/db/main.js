@@ -12,15 +12,12 @@ function insertFromCsv(filename) {
     let csvData = [];
     let csvStream = csv
             .parse()
-
             // .validate((data) => !contains(data[0], ','))
             // triggered when a new record is parsed, we then add it to the data array
             .on('data', (data) => {
                 csvData.push(data);
-
             })
             .on('data-invalid', (row, rowNumber) =>
-
                 console.log(
                     `Invalid [rowNumber=${rowNumber}] [row=${JSON.stringify(row)}]`
                 )
@@ -58,15 +55,14 @@ function insertFromCsv(filename) {
 const copy = ()=> {
     db.connect()
     .then((client)=> {
-        const stream = client.query(copyFrom("COPY characteristic_reviews FROM STDIN CSV HEADER NULL AS 'null'"))
-        const fileStream = fs.createReadStream('/Users/boshao/HACK/PROJECT-ATELIER-REVIEWS-BACKEND/data/characteristic_reviews.csv')
+        const stream = client.query(copyFrom("COPY characteristic_reviews(characteristic_id,review_id,value) FROM STDIN CSV HEADER NULL AS 'null'"))
+        const fileStream = fs.createReadStream('/Users/boshao/HACK/PROJECT-ATELIER-REVIEWS-BACKEND/data/newCharacteristic_reviews.csv')
         fileStream.on('error', console.log)
         stream.on('error', console.log)
         stream.on('finish', client.release)
         fileStream.pipe(stream)
     })
 }
-
 copy()
 
 // stream.pipe(insertFromCsv());

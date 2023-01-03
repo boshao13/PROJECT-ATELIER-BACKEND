@@ -9,12 +9,12 @@ CREATE DATABASE sdc_reviews;
 
 CREATE TABLE IF NOT EXISTS photos (
 id serial PRIMARY KEY,
-product_id INTEGER NOT NULL,
+review_id INT REFERENCES reviews(id),
 url VARCHAR NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
-  id INTEGER NOT NULL PRIMARY KEY ,
+  id serial PRIMARY KEY ,
   product_id INTEGER NOT NULL ,
   rating INTEGER NOT NULL,
   date BIGINT NOT NULL,
@@ -29,11 +29,17 @@ CREATE TABLE IF NOT EXISTS reviews (
 );
 
 CREATE TABLE IF NOT EXISTS characteristic_reviews (
-  id INTEGER NOT NULL PRIMARY KEY ,
+  id serial PRIMARY KEY ,
   characteristic_id INTEGER NOT NULL ,
-  review_id INTEGER NOT NULL ,
+  review_id INT REFERENCES reviews(id) ,
   value INTEGER NOT NULL
 
+);
+
+CREATE TABLE IF NOT EXISTS characteristics (
+  id serial PRIMARY KEY ,
+  product_id INT  ,
+  name VARCHAR NOT NULL
 );
 
 
