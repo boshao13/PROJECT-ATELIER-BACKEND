@@ -56,10 +56,10 @@ module.exports = {
 
       updateReview((err, results) => {
         if (err) {
-          console.log('error in controllers updateReview ', err);
+          console.log('ERROR IN updateReview ', err);
           res.status(404).send(err);
         } else {
-          console.log('success in controllers updateReview ', results);
+          console.log('SUCCESS', results);
           res.status(204).send();
         }
       }, req.params);
@@ -68,10 +68,10 @@ module.exports = {
 
       reportReview((err, results) => {
         if (err) {
-          console.log('error in controllers reportReview ', err);
+          console.log('ERROR IN REPORT REVIEW', err);
           res.status(404).send(err);
         } else {
-          console.log('success in controllers reportReview ', results);
+          console.log('SUCCESS', results);
           res.status(204).send();
         }
       }, req.params);

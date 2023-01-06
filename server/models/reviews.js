@@ -8,7 +8,7 @@ module.exports = {
   getAll: function (callback, id, page, count) {
      return db.query(`SELECT *,(SELECT json_agg(photos) AS photos FROM (SELECT id, url FROM photos where review_id=reviews.id) photos) FROM reviews WHERE product_id=${id} LIMIT ${count} OFFSET ${page * count}`, (err, data) => {
       if (err) {
-        console.log('error')
+        console.log('error IN MAIN QUERY', err)
       } else {
         callback(data)
       }

@@ -1,11 +1,13 @@
 const { Pool } = require('pg');
-
+require('dotenv').config()
 
 // Create a pool instance and pass in our config, which we set in our env vars
 const pool = new Pool({
-
-    database: 'reviews'
-
+    user: 'ubuntu2',
+    host: process.env.DB_HOST,
+    database: 'reviews',
+    password: 'ubuntu',
+    port: process.env.PG_PORT
 });
 
 module.exports = {
