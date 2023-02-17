@@ -20,9 +20,7 @@ module.exports = {
 
 
     postReview: (req, res) => {
-
       const { body } = req;
-
       const newReview = {
         product_id: body.product_id,
         rating: body.rating > 0 && body.rating <= 5 ? body.rating : null,
